@@ -4,10 +4,12 @@ class Forum < ActiveRecord::Base
   validates :board_name, :presence => true
   validates :description, :presence => true
 
+  has_many :posts
   protected
 
   def setup_default
     self.board_owner ||= "Admin"
+    self.articles_count ||= '0'
   end
 end
 
