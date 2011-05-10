@@ -1,52 +1,52 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Is_public:</b>
-  <%= @post.is_public %>
+  <b>Board name:</b>
+  <%= @forum.board_name %>
 </p>
 
 <p>
-  <b>Posted time:</b>
-  <%= @post.created_at %>
+  <b>Created time:</b>
+  <%= @forum.created_at %>
 </p>
 
 <p>
-  <b>Name:</b>
-  <%= @post.name %>
+  <b>版主:</b>
+  <%= @forum.board_owner %>
 </p>
 
 <p>
-  <b>Title:</b>
-  <%= @post.title %>
+  <b>Description:</b>
+  <%= @forum.description %>
 </p>
 
 <p>
-  <b>Content:</b>
-  <%= @post.content %>
+  <b>分類:</b>
+  <%= @forum.category %>
 </p>
 
 <p>
-  <b>String count:</b>
-  <%= @post.content.split.length %>
+  <b>Articles count:</b>
+  <%#<%= @forum.content.split.length %>
 </p>
 
-<p>
-  <b>Char count:</b>
-  <%= @post.content.length %>
-</p>
+<%#<p>%>
+  <%#<b>Char count:</b>%>
+  <%#<%= @forum.content.length %>
+<%#</p>%>
 
 <p>
   <%#<b>Tags:</b>%>
-  <%#<%= join_tags(@post) %>
+  <%#<%= join_tags(@forum) %>
 </p>
 
 <%#<h2>Comments</h2>%>
 <%#<%= render :partial => "comments/comment",%>
-           <%#:collection => @post.comments %>
+           <%#:collection => @forum.comments %>
 
 <%#<h2>Add a comment:</h2>%>
 <%#<%= render "comments/form" %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back to Posts', posts_path %>
+<%= link_to 'Edit', edit_forum_path(@forum) %> |
+<%= link_to 'Back to forums', forums_path %>
 

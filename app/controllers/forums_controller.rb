@@ -26,8 +26,8 @@ class ForumsController < ApplicationController
   end
 
   def update
-    if @post.update_attributes(params[:forum])
-      redirect_to(@post, :notice => 'Forum updated...lol')
+    if @forum.update_attributes(params[:forum])
+      redirect_to(@forum, :notice => 'Forum updated...lol')
     else
       render :action => "edit"
     end

@@ -1,10 +1,10 @@
-<%= form_for(@post) do |post_form| %>
-  <% if @post.errors.any? %>
+<%= form_for(@forum) do |forum_form| %>
+  <% if @forum.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@forum.errors.count, "error") %> prohibited this forum from being saved:</h2>
 
       <ul>
-      <% @post.errors.full_messages.each do |msg| %>
+      <% @forum.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,23 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= post_form.label :'this post is public?' %><br />
-    <%= post_form.check_box :is_public %>
+    <%= forum_form.label :'版名' %><br />
+    <%= forum_form.text_field :board_name %>
   </div>
   <div class="field">
-    <%= post_form.label :name %><br />
-    <%= post_form.text_field :name %>
+    <%= forum_form.label :'敘述' %><br />
+    <%= forum_form.text_field :description %>
   </div>
   <div class="field">
-    <%= post_form.label :title %><br />
-    <%= post_form.text_field :title %>
+    <%= forum_form.label :'Category' %><br />
+    <%= forum_form.text_field :category %>
   </div>
-  <div class="field">
-    <%= post_form.label :content %><br />
-    <%= post_form.text_area :content %>
-  </div>
-  <h2>Tags</h2>
   <div class="actions">
-    <%= post_form.submit %>
+    <%= forum_form.submit %>
   </div>
 <% end %>

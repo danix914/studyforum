@@ -1,9 +1,9 @@
-<h2>The homework posts list</h2>
+<h5>Welocome to the homework forum...Q_Q</h5>
 
 <table>
   <tr>
-    <th>Board</th>
-    <th>Description</th>
+    <%#<th>Board</th>%>
+    <th>Board/Description</th>
     <th>版主</th>
     <th>Category</th>
     <th>文章數</th>
@@ -16,8 +16,10 @@
 
   <% @forums.each do |forum| %>
   <tr>
-    <td><%= forum.board_name %></td>
-    <td><%= forum.description %></td>
+    <td align=center>
+      <%= link_to forum.board_name, forum %><br />
+      <%= forum.description %>
+    </td>
     <td><%= forum.board_owner %></td>
     <td><%= forum.category %></td>
     <td><%= forum.articles_count %></td>
