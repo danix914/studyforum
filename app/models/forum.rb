@@ -8,7 +8,6 @@ class Forum < ActiveRecord::Base
 
   def setup_default
     self.board_owner ||= "Admin"
-    self.articles_count ||= '0'
   end
 end
 

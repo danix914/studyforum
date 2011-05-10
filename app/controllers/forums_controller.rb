@@ -1,9 +1,6 @@
 class ForumsController < ApplicationController
   before_filter :find_Forum, :only => [:show, :edit, :update, :destroy]
 
-  include AuthenticatedSystem
-  #before_filter :login_required, :except => [:index, :show]
-
   def index
     @forums = Forum.all
   end
