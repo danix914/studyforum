@@ -4,7 +4,7 @@ class AddPostsCountToForum < ActiveRecord::Migration
 
     Forum.reset_column_information
     Forum.find(:all).each do |p|
-      Forum.update_counter p.id, :posts_count => p.posts.length
+      Forum.update_attribute :posts_count, p.posts.length
     end
   end
 
