@@ -22,7 +22,8 @@
 <% end %>
 </table>
 
-<%= paginate @a_page, :param_name => :pagina %>
+<br />
+<%= paginate @posts %>
 <br />
 
 <%= link_to 'New Post', new_forum_post_path(@forum) %> |
