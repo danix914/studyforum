@@ -42,8 +42,10 @@
 
 <%#<h2>Comments</h2>%>
 <%#<%= render :partial => "comments/comment",%>
-           <%#:collection => @forum.comments %>
+<%#:collection => @forum.comments %>
 
+<h2>文章列表</h2>
+<%= @forum.posts.index %>
 <%#<h2>Add a comment:</h2>%>
 <%#<%= render "comments/form" %>
 
