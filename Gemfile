@@ -10,6 +10,7 @@ gem 'mysql2', '~>0.2.1'
 group :development do
     gem 'annotate'
 end
+gem 'kaminari'
 # Use unicorn as the web server
 # gem 'unicorn'
 

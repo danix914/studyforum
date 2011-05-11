@@ -14,6 +14,7 @@ class Forum < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: forums
@@ -27,5 +28,6 @@ end
 #  created_at     :datetime
 #  updated_at     :datetime
 #  user_id        :integer(4)
+#  posts_count    :integer(4)      default(0)
 #
 

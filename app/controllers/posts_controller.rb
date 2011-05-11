@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     @post = @forum.posts.new(params[:post])
 
     if @post.save
-      redirect_to(forum_post_path, :notice => '新增文章.')
+      redirect_to(forum_post_path(@forum, @post), :notice => '新增文章.')
     else
       render :action => "new"
     end
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to forum_path(@forum)
+    redirect_to forum_posts_path(@forum)
   end
 
   protected
