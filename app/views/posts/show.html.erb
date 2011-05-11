@@ -42,6 +42,6 @@
 <%#<h2>Add a comment:</h2>%>
 <%#<%= render "comments/form" %>
 
-<%= link_to 'Edit', edit_forum_post_path(@post) %> |
-<%= link_to 'Back to Posts', forum_posts_path %>
+<%= link_to 'Edit', edit_forum_post_path(@forum, @post) %> |
+<%= link_to 'Back to Board', forum_path(@forum) %>
 

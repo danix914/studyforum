@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  before_filter :find_Forum
-  before_filter :find_Post, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_forum
+  before_filter :find_post, :only => [:show, :edit, :update, :destroy]
 
   include AuthenticatedSystem
   before_filter :login_required, :except => [:index, :show]
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(params[:post])
-      redirect_to(@forum, :notice => 'Post updated.')
+      redirect_to(forum_post_path(@forum, @post), :notice => 'Post updated.')
     else
       render :action => "edit"
     end
@@ -47,11 +47,11 @@ class PostsController < ApplicationController
 
   protected
 
-  def find_Forum
+  def find_forum
     @forum = Forum.find(params[:forum_id])
   end
 
-  def find_Post
+  def find_post
     @post = @forum.posts.find(params[:id])
   end
 end

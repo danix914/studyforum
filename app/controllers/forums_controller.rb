@@ -9,7 +9,7 @@ class ForumsController < ApplicationController
   end
 
   def show
-    @posts = @forum.posts.all
+    @posts = @forum.posts.order(:id).page(params[:page]).per(3)
   end
 
   def new
