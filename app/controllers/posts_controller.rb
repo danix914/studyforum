@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to forum_posts_path(@forum)
+    redirect_to forum_path(@forum)
   end
 
   protected
