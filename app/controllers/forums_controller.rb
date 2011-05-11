@@ -9,6 +9,7 @@ class ForumsController < ApplicationController
   end
 
   def show
+    @posts = @forum.posts.all
   end
 
   def new

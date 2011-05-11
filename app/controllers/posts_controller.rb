@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = @forum.posts.all
+    @a_page = Post.order(:name).page params[:page]
   end
 
   def show

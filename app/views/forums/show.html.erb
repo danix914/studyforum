@@ -27,7 +27,7 @@
 
 <p>
   <b>Articles count:</b>
-  <%#<%= @forum.content.split.length %>
+  <%= @forum.posts_count %>
 </p>
 
 <%#<p>%>
@@ -45,10 +45,12 @@
 <%#:collection => @forum.comments %>
 
 <h2>文章列表</h2>
-<%= @forum.posts.index %>
+<%= render "posts/showindex" %>
 <%#<h2>Add a comment:</h2>%>
 <%#<%= render "comments/form" %>
 
-<%= link_to 'Edit', edit_forum_path(@forum) %> |
+<br />
+
+<%#<%= link_to 'Edit', edit_forum_path(@forum)  |%>
 <%= link_to 'Back to forums', forums_path %>
 
