@@ -16,7 +16,6 @@ class PostsController < ApplicationController
 
   def new
     @post = @forum.posts.new
-    @post.author = :current_user
   end
 
   def edit
@@ -24,6 +23,7 @@ class PostsController < ApplicationController
 
   def create
     @post = @forum.posts.new(params[:post])
+    @post.user_id = current_user.id
 
     if @post.save
       redirect_to(forum_post_path(@forum, @post), :notice => '新增文章.')
