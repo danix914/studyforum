@@ -11,13 +11,13 @@
 
   <% @posts.each do |post| %>
   <tr>
-    <td><%= link_to post.title, post %></td>
+    <td><%= link_to post.title, forum_post_path(@forum, post) %></td>
     <td><%= post.author %></td>
     <td><%= post.created_at %></td>
     <td><%= post.updated_at %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', forum_post_path(@forum, post) %></td>
+    <td><%= link_to 'Edit', edit_forum_post_path(@forum, post) %></td>
+    <td><%= link_to 'Destroy', forum_post_path(@forum, post), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
