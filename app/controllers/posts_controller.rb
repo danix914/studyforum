@@ -8,7 +8,10 @@ class PostsController < ApplicationController
   before_filter :check_user, :only => [:edit, :update, :destroy]
 
   def index
-    @posts = @forum.posts.order(:id).page(params[:page]).per(3)
+    sort_params = { "by_user" => "user_id", "by_date" => "created_at DESC",
+                    "by_id" => "id", "by_update" => "updated_at"  }
+    #@posts = @forum.posts.order(:id).page(params[:page]).per(5)
+    @posts = @forum.posts.test_order(sort_params[params[:sort]]).page(params[:page]).per(10)
   end
 
   def show

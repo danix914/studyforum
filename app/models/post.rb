@@ -4,7 +4,10 @@ class Post < ActiveRecord::Base
   validates :title, :presence => true
   validates :content, :presence => true
 
-  paginates_per 3
+  #paginates_per 3
+
+  scope :ordered, lambda { |*args| { :order => (args.first || 'created_at DESC')} }
+  scope :test_order, lambda { |user_order| { :order => (user_order || 'id') } }
 end
 
 
