@@ -1,10 +1,11 @@
 <h1>好文章，不改嗎？</h1>
 
-<%= form_for(@post, :url => forum_post_path(@forum, @post)) do |post_form| %>
+<%#<%= form_for(@post, :url => forum_post_path(@forum, @post)) do |post_form| %>
 
-  <%= render 'form', { :post_form => post_form }%>
+  <%#<%= render 'form', { :post_form => post_form }%>
+  <%= render 'form', { :url => forum_post_path(@forum, @post) }%>
 
-<% end %>
+<%#<% end %>
 
 <%= link_to 'Show', forum_post_path(@forum, @post) %> |
 <%= link_to 'Back', forum_path(@forum) %>

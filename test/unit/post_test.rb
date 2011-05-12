@@ -7,6 +7,7 @@ class PostTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: posts
@@ -18,5 +19,6 @@ end
 #  forum_id   :integer(4)
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer(4)
 #
 

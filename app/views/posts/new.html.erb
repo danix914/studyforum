@@ -1,8 +1,9 @@
 <h1>New post</h1>
-<%= form_for(@post, :url => forum_posts_path(@forum)) do |post_form| %>
+<%#<%= form_for(@post, :url => forum_posts_path(@forum)) do |post_form| %>
 
-  <%= render 'form', { :post_form => post_form }%>
+  <%#<%= render 'form', { :post_form => post_form }%>
+  <%= render 'form', { :url => forum_posts_path(@forum) }%>
 
-<% end %>
+<%#<% end %>
 
 <%= link_to 'Back', forum_posts_path %>

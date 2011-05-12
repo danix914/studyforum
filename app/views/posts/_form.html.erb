@@ -1,4 +1,5 @@
 <%#<%= form_for(@post, :url => forum_posts_path(@forum)) do |post_form| %>
+<%= form_for(@post, :url => url ) do |post_form| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -25,4 +26,4 @@
   <div class="actions">
     <%= post_form.submit %>
   </div>
-<%#<% end %>
+<% end %>
