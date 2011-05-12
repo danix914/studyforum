@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   include AuthenticatedSystem
   before_filter :login_required, :except => [:index, :show]
+  before_filter :check_user, :only => [:edit, :update, :destroy]
 
   def index
     @posts = @forum.posts.order(:id).page(params[:page]).per(3)
@@ -53,5 +54,11 @@ class PostsController < ApplicationController
 
   def find_post
     @post = @forum.posts.find(params[:id])
+  end
+
+  def check_user
+    if !(current_user && @post.user_id == current_user.id)
+      redirect_to(forum_path(@forum), :notice => '你 不 能 過 ！')
+    end
   end
 end
