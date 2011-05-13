@@ -31,8 +31,10 @@
 </p>
 
 <p>
-  <%#<b>Tags:</b>%>
-  <%#<%= join_tags(@post) %>
+  <b>Attached file:</b>
+  <%= image_tag @post.avatar.url %>
+  <%= image_tag @post.avatar.url(:medium) %>
+  <%= image_tag @post.avatar.url(:thumb) %>
 </p>
 
 <%#<h2>Comments</h2>%>

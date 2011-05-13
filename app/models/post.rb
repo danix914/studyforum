@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
 
   scope :ordered, lambda { |*args| { :order => (args.first || 'created_at DESC')} }
   scope :test_order, lambda { |user_order| { :order => (user_order || 'id') } }
+
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 end
 
 
