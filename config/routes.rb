@@ -17,6 +17,12 @@ Studyforum::Application.routes.draw do
     resources :posts
   end
 
+  namespace "admin" do
+    resources :forums do
+      resources :posts
+    end
+  end
+
   get "home/index"
   root :to => "home#index"
 
