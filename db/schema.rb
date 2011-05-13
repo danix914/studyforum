@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20110510123625) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "posts_count",    :default => 0
+    t.boolean  "is_admin"
   end
 
   create_table "posts", :force => true do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20110510123625) do
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
+    t.boolean  "is_admin"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
