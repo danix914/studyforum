@@ -102,6 +102,7 @@ protected
   end
 end
 
+
 # == Schema Information
 #
 # Table name: users
@@ -116,5 +117,6 @@ end
 #  updated_at                :datetime
 #  remember_token            :string(40)
 #  remember_token_expires_at :datetime
+#  is_admin                  :boolean(1)
 #
 

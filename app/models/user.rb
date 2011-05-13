@@ -58,7 +58,9 @@ class User < ActiveRecord::Base
     self.is_admin ||= 'false'
   end
 
+  attr_protected :is_admin
 end
+
 
 # == Schema Information
 #
@@ -74,5 +76,6 @@ end
 #  updated_at                :datetime
 #  remember_token            :string(40)
 #  remember_token_expires_at :datetime
+#  is_admin                  :boolean(1)
 #
 

@@ -15,6 +15,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: forums
@@ -29,5 +30,6 @@ end
 #  updated_at     :datetime
 #  user_id        :integer(4)
 #  posts_count    :integer(4)      default(0)
+#  is_admin       :boolean(1)
 #
 

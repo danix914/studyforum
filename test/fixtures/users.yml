@@ -30,6 +30,7 @@ old_password_holder:
 
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -44,5 +45,6 @@ old_password_holder:
 #  updated_at                :datetime
 #  remember_token            :string(40)
 #  remember_token_expires_at :datetime
+#  is_admin                  :boolean(1)
 #
 
