@@ -9,7 +9,10 @@ class ForumsController < ApplicationController
   end
 
   def show
-    @posts = @forum.posts.order(:id).page(params[:page]).per(3)
+    sort_params = { "by_user" => "user_id", "by_date" => "created_at DESC",
+                    "by_id" => "id", "by_update" => "updated_at"  }
+    #@posts = @forum.posts.order(:id).page(params[:page]).per(5)
+    @posts = @forum.posts.test_order(sort_params[params[:sort]]).page(params[:page]).per(5)
   end
 
   def new

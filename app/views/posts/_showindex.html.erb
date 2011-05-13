@@ -1,9 +1,9 @@
 <table>
   <tr>
-    <th>文章</th>
-    <th>作者</th>
-    <th>Created Time</th>
-    <th>Updated Time</th>
+    <th><%= link_to "文章", :sort => "by_id"%></th>
+    <th><%= link_to "作者", :sort => "by_user"%></th>
+    <th><%= link_to "Created Time", :sort => "by_date"%></th>
+    <th><%= link_to "Updated Time", :sort => "by_update"%></th>
     <th></th>
     <th></th>
   </tr>
@@ -11,7 +11,7 @@
   <% @posts.each do |post| %>
   <tr>
     <td><%= link_to post.title, forum_post_path(@forum, post) %></td>
-    <td><%= User.find(post.user_id).login %></td>
+    <td><%= post.id %><%= User.find(post.user_id).login %></td>
     <td><%= post.created_at %></td>
     <td><%= post.updated_at %></td>
     <%#<td><%= link_to 'Show', forum_post_path(@forum, post) %>
