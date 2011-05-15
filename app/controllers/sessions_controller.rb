@@ -1,4 +1,4 @@
-# This controller handles the login/logout function of the site.  
+# This controller handles the login/logout function of the site.
 class SessionsController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
@@ -18,7 +18,11 @@ class SessionsController < ApplicationController
       self.current_user = user
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      redirect_back_or_default('/', :notice => "Logged in successfully")
+      if current_user.is_admin
+        redirect_to(admin_forums_path, :notice => '你 可 以 過 ！')
+      else
+        redirect_back_or_default('/', :notice => "Logged in successfully")
+      end
     else
       note_failed_signin
       @login       = params[:login]

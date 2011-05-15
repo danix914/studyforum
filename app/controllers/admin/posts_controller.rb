@@ -4,8 +4,8 @@ class Admin::PostsController < ApplicationController
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
 
   include AuthenticatedSystem
-  before_filter :login_required, :except => [:index, :show]
-  before_filter :check_user, :only => [:edit, :update, :destroy]
+  before_filter :login_required
+  before_filter :check_admin
 
   def index
     sort_params = { "by_user" => "user_id", "by_date" => "created_at DESC",
@@ -59,8 +59,8 @@ class Admin::PostsController < ApplicationController
     @post = @forum.posts.find(params[:id])
   end
 
-  def check_user
-    if !(current_user && @post.user_id == current_user.id)
+  def check_admin
+    if !(current_user.is_admin)
       redirect_to(forum_path(@forum), :notice => '你 不 能 過 ！')
     end
   end

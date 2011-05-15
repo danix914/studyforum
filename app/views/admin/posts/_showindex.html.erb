@@ -1,0 +1,31 @@
+<table>
+  <tr>
+    <th><%= link_to "文章", :sort => "by_id"%></th>
+    <th><%= link_to "作者", :sort => "by_user"%></th>
+    <th><%= link_to "Created Time", :sort => "by_date"%></th>
+    <th><%= link_to "Updated Time", :sort => "by_update"%></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+  <tr>
+    <td><%= link_to post.title, forum_post_path(@forum, post) %></td>
+    <td><%= post.id %><%= User.find(post.user_id).login %></td>
+    <td><%= post.created_at %></td>
+    <td><%= post.updated_at %></td>
+    <%#<td><%= link_to 'Show', forum_post_path(@forum, post) %>
+
+    <% if current_user &&  post.user_id == current_user.id  %>
+      <td><%= link_to 'Edit', edit_forum_post_path(@forum, post) %></td>
+      <td><%= link_to 'Destroy', forum_post_path(@forum, post), :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= paginate @posts %>
+<br />
+
+<%= link_to 'New Post', new_forum_post_path(@forum) %> |

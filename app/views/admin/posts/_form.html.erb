@@ -1,0 +1,30 @@
+<%#<%= form_for(@post, :url => forum_posts_path(@forum)) do |post_form| %>
+  <%= form_for(@post, :url => url, :html => { :multipart => true } ) do |post_form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= post_form.label :current_id %><br />
+  </div>
+  <div class="field">
+    <%= post_form.label :title %><br />
+    <%= post_form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= post_form.label :content %><br />
+    <%= post_form.text_area :content %>
+  </div>
+  <%= post_form.file_field :avatar %>
+  <div class="actions">
+    <%= post_form.submit %>
+  </div>
+<% end %>

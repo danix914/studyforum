@@ -1,0 +1,29 @@
+<%= form_for(@forum) do |forum_form| %>
+  <% if @forum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@forum.errors.count, "error") %> prohibited this forum from being saved:</h2>
+
+      <ul>
+      <% @forum.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= forum_form.label :'版名' %><br />
+    <%= forum_form.text_field :board_name %>
+  </div>
+  <div class="field">
+    <%= forum_form.label :'敘述' %><br />
+    <%= forum_form.text_field :description %>
+  </div>
+  <div class="field">
+    <%= forum_form.label :'Category' %><br />
+    <%= forum_form.text_field :category %>
+  </div>
+  <div class="actions">
+    <%= forum_form.submit %>
+  </div>
+<% end %>

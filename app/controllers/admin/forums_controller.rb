@@ -2,7 +2,8 @@ class Admin::ForumsController < ApplicationController
   before_filter :find_Forum, :only => [:show, :edit, :update, :destroy]
 
   include AuthenticatedSystem
-  before_filter :login_required, :except => [:index, :show]
+  before_filter :login_required
+  before_filter :check_admin
 
   def index
     @forums = Forum.all
@@ -50,5 +51,11 @@ class Admin::ForumsController < ApplicationController
 
   def find_Forum
     @forum = Forum.find(params[:id])
+  end
+
+  def check_admin
+    if !(current_user.is_admin)
+      redirect_to(forums_path, :notice => '你 不 能 過 ！')
+    end
   end
 end

@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Board name:</b>
+  <%= @forum.board_name %>
+</p>
+
+<p>
+  <b>Created time:</b>
+  <%= @forum.created_at %>
+</p>
+
+<p>
+  <b>版主:</b>
+  <%= @forum.board_owner %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @forum.description %>
+</p>
+
+<%#<p>%>
+  <%#<b>分類:</b>%>
+  <%#<%= @forum.category %>
+<%#</p>%>
+
+<p>
+  <b>Articles count:</b>
+  <%= @forum.posts_count %>
+</p>
+
+<%#<p>%>
+  <%#<b>Char count:</b>%>
+  <%#<%= @forum.content.length %>
+<%#</p>%>
+
+<p>
+  <%#<b>Tags:</b>%>
+  <%#<%= join_tags(@forum) %>
+</p>
+
+<%#<h2>Comments</h2>%>
+<%#<%= render :partial => "comments/comment",%>
+<%#:collection => @forum.comments %>
+
+<h2>文章列表</h2>
+<%= render "posts/showindex" %>
+<%#<h2>Add a comment:</h2>%>
+<%#<%= render "comments/form" %>
+
+<br />
+
+<%#<%= link_to 'Edit', edit_forum_path(@forum)  |%>
+<%= link_to 'Back to forums', forums_path %>
+<br /><br />
+<%= render "users/user_bar" %>
+

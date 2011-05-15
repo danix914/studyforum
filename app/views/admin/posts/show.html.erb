@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Posted time:</b>
+  <%= @post.created_at %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= User.find(@post.user_id).login %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+
+<p>
+  <b>String count:</b>
+  <%= @post.content.split.length %>
+</p>
+
+<p>
+  <b>Char count:</b>
+  <%= @post.content.length %>
+</p>
+
+<p>
+  <b>Attached file:</b>
+  <%= image_tag @post.avatar.url %>
+  <%= image_tag @post.avatar.url(:medium) %>
+  <%= image_tag @post.avatar.url(:thumb) %>
+</p>
+
+<%#<h2>Comments</h2>%>
+<%#<%= render :partial => "comments/comment",%>
+           <%#:collection => @post.comments %>
+
+<%#<h2>Add a comment:</h2>%>
+<%#<%= render "comments/form" %>
+
+<% if current_user &&  @post.user_id == current_user.id  %>
+  <%= link_to 'Edit', edit_forum_post_path(@forum, @post) %> |
+<% end %>
+<%= link_to 'Back to Board', forum_path(@forum) %>
+
