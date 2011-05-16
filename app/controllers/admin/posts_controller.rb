@@ -30,7 +30,7 @@ class Admin::PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
-      redirect_to(forum_post_path(@forum, @post), :notice => '新增文章.')
+      redirect_to(admin_forum_post_path(@forum, @post), :notice => '新增文章.')
     else
       render :action => "new"
     end
@@ -38,7 +38,7 @@ class Admin::PostsController < ApplicationController
 
   def update
     if @post.update_attributes(params[:post])
-      redirect_to(forum_post_path(@forum, @post), :notice => 'Post updated.')
+      redirect_to(admin_forum_post_path(@forum, @post), :notice => 'Post updated.')
     else
       render :action => "edit"
     end
@@ -46,7 +46,7 @@ class Admin::PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to forum_path(@forum)
+    redirect_to admin_forum_path(@forum)
   end
 
   protected

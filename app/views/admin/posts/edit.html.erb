@@ -3,9 +3,9 @@
 <%#<%= form_for(@post, :url => forum_post_path(@forum, @post)) do |post_form| %>
 
   <%#<%= render 'form', { :post_form => post_form }%>
-  <%= render 'form', { :url => forum_post_path(@forum, @post) }%>
+  <%= render 'form', { :url => admin_forum_post_path(@forum, @post) }%>
 
 <%#<% end %>
 
-<%= link_to 'Show', forum_post_path(@forum, @post) %> |
-<%= link_to 'Back', forum_path(@forum) %>
+<%= link_to 'Show', admin_forum_post_path(@forum, @post) %> |
+<%= link_to 'Back', admin_forum_path(@forum) %>

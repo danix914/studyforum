@@ -45,14 +45,14 @@
 <%#:collection => @forum.comments %>
 
 <h2>文章列表</h2>
-<%= render "posts/showindex" %>
+<%= render "admin/posts/showindex" %>
 <%#<h2>Add a comment:</h2>%>
 <%#<%= render "comments/form" %>
 
 <br />
 
 <%#<%= link_to 'Edit', edit_forum_path(@forum)  |%>
-<%= link_to 'Back to forums', forums_path %>
+<%= link_to 'Back to forums', admin_forums_path %>
 <br /><br />
 <%= render "users/user_bar" %>
 
